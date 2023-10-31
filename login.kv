@@ -1,0 +1,129 @@
+MDScreen:
+     name: "login"
+     MDFloatLayout:
+          md_bg_color: 1/255, 1/255, 135/255, 1
+          Image:
+               source:"location_n.png"
+               size_hint: 0.1,0.1
+               pos_hint: {"center_x":0.5,"center_y":0.95}
+          MDLabel:
+               id:location
+               text: ""
+               color: 1,1,1,1
+               pos_hint:{"center_x":0.5,"center_y":0.89}
+               halign: "center"
+               font_size: "20sp"
+               font_name:"OpenSans-Bold.ttf"
+          Image:
+               id: weather_image
+               source:"bigsun.png"
+               size_hint: 0.5,0.5
+               pos_hint: {"center_x":0.5,"center_y":0.77}
+          MDLabel:
+               id:temperature
+               text: ""
+               color: 1,1,1,1
+               markup: True
+               pos_hint:{"center_x":0.89,"center_y":0.62}
+               font_size: "56sp"
+               font_name:"OpenSans-Bold.ttf"
+          MDLabel:
+               id:weather
+               text: ""
+               color: 1,1,1,1
+               pos_hint:{"center_x":0.5,"center_y":0.54}
+               halign: "center"
+               font_size: "20sp"
+               font_name:"OpenSans-Bold.ttf"
+          MDFloatLayout:
+               pos_hint: {"center_x":0.25,"center_y":0.4}
+               size_hint: 0.22,0.1
+               Image:
+                    source:"humid.png"
+                    pos_hint: {"center_x":0.1,"center_y":0.55}
+               MDLabel:
+                    id: humidity
+                    text: ""
+                    color: 1,1,1,1
+                    pos_hint:{"center_x":1,"center_y":0.6}
+                    font_size: "18sp"
+                    font_name:"OpenSans-Bold.ttf"
+               MDLabel:
+                    text: "Humidity"
+                    color: 1,1,1,1
+                    pos_hint:{"center_x":1,"center_y":0.3}
+                    font_size: "14sp"
+                    font_name:"OpenSans-Bold.ttf"
+          MDFloatLayout:
+               pos_hint: {"center_x":0.7,"center_y":0.4}
+               size_hint: 0.22,0.1
+               Image:
+                    source:"wind.png"
+                    pos_hint: {"center_x":0.2,"center_y":0.5}
+               MDLabel:
+                    id: wind_speed
+                    text: ""
+                    color: 1,1,1,1
+                    pos_hint:{"center_x":1.2,"center_y":0.6}
+                    font_size: "16sp"
+                    font_name:"OpenSans-Bold.ttf"
+               MDLabel:
+                    text: "Wind"
+                    color: 1,1,1,1
+                    pos_hint:{"center_x":1.2,"center_y":0.3}
+                    font_size: "14sp"
+                    font_name:"OpenSans-Bold.ttf"
+          
+          MDFloatLayout:
+               size_hint_y: 0.3
+               canvas:
+                    Color: 
+                         rgb: rgba(1,1,135,255)
+                    RoundedRectangle:
+                         size: self.size
+                         pos:self.pos
+                         radius: [10,10,0,0]
+
+               MDFloatLayout:
+                    pos_hint: {"center_x":0.5,"center_y":0.71}
+                    size_hint: 0.9,0.32
+                    canvas:
+                         Color: 
+                              rgb: rgba(3,118,255,255)
+                         RoundedRectangle:
+                              size: self.size
+                              pos:self.pos
+                              radius: [6]
+                    TextInput:
+                         id:city_name
+                         hint_text: "Enter City Name"
+                         size_hint:1, None
+                         pos_hint: {"center_x":0.5,"center_y":0.5}
+                         height: self.minimum_height
+                         multiline: False
+                         font_name: "OpenSans-Bold.ttf"
+                         font_size: "20sp"
+                         hint_text_color: 1,1,1,1
+                         foreground_color:1,1,1,1
+                         background_color:0,0,0.7,0
+                         padding:16
+                         cursor_color:1,1,1,1
+                         cursor_width:"2sp"
+
+               Button:
+                    text: "Get Weather"
+                    font_name: "OpenSans-Bold.ttf"
+                    font_size:"20sp"
+                    size_hint: 0.9,0.32
+                    pos_hint: {"center_x":0.5,"center_y":0.29}
+                    background_color:0,0.5,1,0
+                    color:rgba(255,255,255,255)
+                    on_release:app.search_weather()
+                    canvas.before:
+                         Color: 
+                              rgb: 0,0.1,0.9,1
+                         RoundedRectangle:
+                              size: self.size
+                              pos:self.pos
+                              radius: [6]
+               
