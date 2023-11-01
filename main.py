@@ -13,7 +13,7 @@ class SplashScreen(Screen):
 class LoginScreen(Screen):
     pass
 class Weather_WonderApp(MDApp):
-    api_key = "3e5441ed0737701582e41039a80703b4"
+    api_key = "Put your own OpenWeather API key"
 
     def on_start(self):
         default_city = "Karachi"  # Replace with your default city name
